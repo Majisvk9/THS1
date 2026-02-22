@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classic Bengali Topor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Poppins;
+margin:0;
+background:#f6f7fb;
+}
+
+header{
+background:#b32d2e;
+color:#fff;
+padding:15px;
+text-align:center;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.slider{
+position:relative;
+overflow:hidden;
+border-radius:10px;
+}
+
+.slides{
+display:flex;
+transition:0.5s;
+}
+
+.slides img{
+width:100%;
+height:400px;
+object-fit:cover;
+}
+
+.prev, .next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:#b32d2e;
+color:#fff;
+border:none;
+padding:10px;
+cursor:pointer;
+}
+
+.prev{ left:10px; }
+.next{ right:10px; }
+
+.details{
+margin-top:20px;
+text-align:center;
+}
+
+.price{
+color:#b32d2e;
+font-size:22px;
+font-weight:600;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:10px 15px;
+border-radius:5px;
+color:#fff;
+text-decoration:none;
+}
+
+.whatsapp{
+background:#25D366;
+}
+
+.share{
+background:#007bff;
+}
+
+.back{
+background:#b32d2e;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Classic Bengali Topor</h2>
+</header>
+
+<div class="container">
+
+<div class="slider">
+<div class="slides" id="slides">
+
+<img src="../images/topor1.jpg">
+<img src="../images/topor1b.jpg">
+<img src="../images/topor1c.jpg">
+<img src="../images/topor1d.jpg">
+
+</div>
+
+<button class="prev" onclick="prevSlide()">❮</button>
+<button class="next" onclick="nextSlide()">❯</button>
+</div>
+
+<div class="details">
+<h3>Classic Bengali Topor</h3>
+<div class="price">₹399</div>
+
+<p>Traditional handmade Sholapith Topor for Bengali Wedding.</p>
+
+<a class="btn whatsapp" target="_blank"
+href="https://wa.me/919999999999?text=I want to buy Classic Bengali Topor - ₹399">
+Buy on WhatsApp
+</a>
+
+<button class="btn share" onclick="shareProduct()">Share</button>
+
+<a class="btn back" href="topor.html">Back to Collection</a>
+
+</div>
+
+</div>
+
+<script>
+
+let index=0;
+function showSlide(){
+let slides=document.getElementById("slides");
+slides.style.transform=`translateX(-${index*100}%)`;
+}
+
+function nextSlide(){
+index=(index+1)%4;
+showSlide();
+}
+
+function prevSlide(){
+index=(index-1+4)%4;
+showSlide();
+}
+
+setInterval(nextSlide,3000);
+
+function shareProduct(){
+if(navigator.share){
+navigator.share({
+title:'Classic Bengali Topor',
+text:'Check this Topor',
+url:window.location.href
+});
+}else{
+alert("Share not supported in this browser");
+}
+}
+
+</script>
+
+</body>
+</html>
